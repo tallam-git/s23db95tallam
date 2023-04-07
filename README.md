@@ -2,7 +2,7 @@
 
 Charan Teja....................Lab/Assignment-10
 
-[Link to render](https://s23wb95tallam.onrender.com)
+[Link to render](https://s23db95tallam.onrender.com)
 <br>
 <br>
 Class Seleted <b>Electronics</b>
