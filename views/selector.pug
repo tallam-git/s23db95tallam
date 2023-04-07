@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Hello this is Charan Teja's #{title}
+  - var image_names = ["samsung.jpg","1+.jpg","vivo.jpg","lava.jpg","iphone.jpg"]
+  - var i =0;
+  - while(i<3){
+    - var randindex = Math.floor(Math.random()*5)
+    - img = "/images/"+image_names[randindex]
+    - i++
+    img(src=img,  height="300px",width="300px",alt="alt")     
+  -}
+
+
+
+    

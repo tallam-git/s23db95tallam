@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1= title
+  p Hey, Welcome to Charan Teja's Web-Apps Lab/Assignment-10
+  button(type="button", onClick="doReduce()", class="btn btn-success") Press Me
+  br
+  br
+  div(id="reduce") Reduce the value.
+  br
+  div(id="result") Count 0 with change 0
+  script.
+    let count = 20
+    let change = -1
+    function doReduce() {
+      let resultdiv = document.getElementById('result')
+      console.log("clicked")
+      count = count + change 
+      change =change - 1
+      resultdiv.innerHTML=`Count ${count} with bump ${change}`
+    }
+  br
+  a(href="/selector") selector 
+  br
+  br
+  a(href="/board") board
+  br
+  br
+
+  a(href="/electronics") Electronics Search Results 
