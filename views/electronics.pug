@@ -2,41 +2,16 @@ extends layout
 
 block content
  -
-  let results =[
-      {
-        "electronic_Name": "Samsung S22",
-        "electronic_Origin": "Korea",
-        "electronic_ManufacturingYear": 2022
-      },
-      {
-        "electronic_Equip_Name": "Lava Z",
-        "electronic_Origin": "India",
-        "electronic_ManufacturingYear": 2021
-      },
-      {
-        "electronic_Name": "Vivo V23",
-        "electronic_Origin": "China",
-        "electronic_ManufacturingYear": 2023
-      },
-      {
-        "electronic_Name": "Iphone 12",
-        "electronic_Origin": "USA",
-        "electronic_ManufacturingYear": 2020
-      },
-      {
-        "electronic_Name": "Oneplus 6T",
-        "electronic_Origin": "Taiwan",
-        "electronic_ManufacturingYear": 2015
-      }
-    ]
+ 
 
  h1= title
   .container-fluid 
     .row 
       each electronics  in results
         div(class="col-sm-2" style=`border:solid 2px black` onclick=`buy(${results.indexOf(electronics)})`) 
-          each value,key in electronics 
-            = " " +value
+          p= electronics.Electronic_Name
+          p= electronics.Electronic_Origin
+          p= electronics.Electronic_ManufacturingYear
   script.
     function buy(index){
       alert("You purchased item "+index)
