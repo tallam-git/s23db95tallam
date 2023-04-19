@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+.electronicAttr {
+  background-color: aquamarine;
+  width: 620px;
+  }
