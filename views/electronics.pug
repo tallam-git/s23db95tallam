@@ -6,6 +6,8 @@ block content
       height:30px;
       font-size:12px !important;
       margin:4px;
+      text-align: center ;
+      margin: 25px;
     }
     .item{
       position:fixed;
@@ -49,7 +51,7 @@ block content
       width:100%;
       display:flex;
       flex-wrap:wrap;
-      justify-content:space-evenly
+      justify-content:space-evenly;    
     }
     .center{
       text-align:center;
@@ -62,7 +64,7 @@ block content
   div(class="container-fluid")
     div(class="row")
       a( href=`/electronics/create`) 
-        button.btn(class="btn btn-primary") Create new Electronic Instance
+        button.btn(class="btn btn-success") Create new Electronic Instance
       each item,index in items
         - let destination = `dispatch(\"/electronics/update?id=${item._id}\")`
         - let destination2 = `dispatch(\"/electronics/delete?id=${item._id}\")`
@@ -71,9 +73,13 @@ block content
           p #{item.Electronic_Name}
           p #{item.Electronic_Origin}
           p #{item.Electronic_ManufacturingYear}
-          button.btn( class="btn-primary ml-1", onclick= destination) Update
+          button.btn( class="btn-warning ml-1", onclick= destination) Update
+          br
+          br
           button.btn( class="btn-primary ml-1", onclick= destination3) Detail
-          button.btn( class="btn-primary ml-1", onclick= destination2) Delete
+          br
+          br
+          button.btn( class="btn-danger ml-1", onclick= destination2) Delete
   script.
     function dispatch(path){
       console.log(path);
