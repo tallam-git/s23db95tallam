@@ -1,7 +1,7 @@
 extends layout
 
 block content
- style.
+  style.
     a{
       height:30px;
       font-size:12px !important;
@@ -24,6 +24,7 @@ block content
       background-size:cover;
       height:100vh;
       background-repeat:no-repeat;
+      color:white;
     }
     p{
       text-align:center;
@@ -56,17 +57,26 @@ block content
       top:50%;
       transform:translateY(-50%);
     }
-
- h1= title
-  .container-fluid 
-    .row 
-      each electronics  in results
-        div(class="col-sm-2" style=`border:solid 2px white` onclick=`buy(${results.indexOf(electronics)})`) 
-          p= electronics.Electronic_Name
-          p= electronics.Electronic_Origin
-          p= electronics.Electronic_ManufacturingYear
+  h1= title
+  - let items = results;
+  div(class="container-fluid")
+    div(class="row")
+      a( href=`/electronics/create`) 
+        button.btn(class="btn btn-primary") Create new Electronic Instance
+      each item,index in items
+        - let destination = `dispatch(\"/electronics/update?id=${item._id}\")`
+        - let destination2 = `dispatch(\"/electronics/delete?id=${item._id}\")`
+        - let destination3 = `dispatch(\"/electronics/detail?id=${item._id}\")`
+        div(class="col-sm-2" class="m-1")
+          p #{item.Electronic_Name}
+          p #{item.Electronic_Origin}
+          p #{item.Electronic_ManufacturingYear}
+          button.btn( class="btn-primary ml-1", onclick= destination) Update
+          button.btn( class="btn-primary ml-1", onclick= destination3) Detail
+          button.btn( class="btn-primary ml-1", onclick= destination2) Delete
   script.
-    function buy(index){
-      alert("You purchased item "+index)
+    function dispatch(path){
+      console.log(path);
+      window.location.href=path;
     }
-
+  
